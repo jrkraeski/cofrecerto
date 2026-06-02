@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-429QSDNZQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-429QSDNZQE');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofre Certo — Planilha Familiar para Sair do Sufoco</title>
+  <meta name="description" content="A planilha que mostra pra onde foi o dinheiro, divide as contas pelo que cada um ganha e te avisa antes do saldo zerar. Excel + Google Sheets. Pagamento único de R$35,00.">
+
+  <meta property="og:title" content="Cofre Certo — Planilha Familiar para Sair do Sufoco">
+  <meta property="og:description" content="Guarde no lugar certo, viva sem sufoco. A planilha familiar feita por quem entende a dor do fim do mês.">
+  <meta property="og:url" content="https://cofrecerto.com.br">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cofrecerto.com.br/imagens/dashboard.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://cofrecerto.com.br">
+  <link rel="icon" type="image/png" href="imagens/favicon_256.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script>document.documentElement.classList.remove('no-js');</script>
+
+  <style>
+    /* ── Seção de depoimentos ── */
+    #depoimentos { background: var(--fundo-card); }
+    .depoimento-card {
+      background: #fff;
+      border: 1px solid #D1E8D4;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      padding: 36px 40px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .depoimento-stars {
+      color: #D4A017;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+    .depoimento-texto {
+      font-size: 1.05rem;
+      color: var(--texto-sec);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .depoimento-autor-nome {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--texto);
+    }
+    .depoimento-autor-id {
+      font-size: .82rem;
+      color: var(--texto-muted);
+      margin-top: 2px;
+    }
+    @media (max-width: 600px) {
+      .depoimento-card { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div id="scroll-bar"></div>
+
+  <!-- ═════════════════════════════════════════
+       NAVBAR
+  ═════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" aria-label="Cofre Certo — página inicial">
+        <img src="imagens/logo.png" alt="Cofre Certo — Planilha Financeira Familiar" class="nav-logo">
+      </a>
+      <div class="nav-right">
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+        <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+        <a href="#faq" class="nav-link">Perguntas</a>
+        <a href="feedback.html" class="nav-link">Avaliar</a>
+        <a href="https://pay.hotmart.com/I105294110E" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+          Comprar R$35,00
+          <i class="ti ti-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═════════════════════════════════════════
+       HERO
+  ═════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="pill hero-badge">
+            <i class="ti ti-lock"></i> Planilha Familiar · Excel + Google Sheets
+          </span>
+          <h1 class="hero-h1">
+            Sem mistério: <em>pra onde foi o dinheiro</em> esse mês.
+          </h1>
+          <p class="hero-p">
+            A planilha familiar que mostra onde está o vazamento, divide as contas pelo
+            que cada um ganha e te avisa antes do saldo zerar. <strong style="color:rgba(255,255,255,.92);">Sem julgamento. Só método.</strong>
+          </p>
+          <div class="hero-btns">
+            <a href="https://pay.hotmart.com/I105294110E" class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+              Quero ver pra onde foi meu dinheiro
+              <i class="ti ti-arrow-right"></i>
+            </a>
+            <a href="#como-funciona" class="btn btn-ghost-white">
+              Ver como funciona
+              <i class="ti ti-arrow-down"></i>
+            </a>
+          </div>
+          <div class="trust-chips">
+            <span class="trust-chip"><i class="ti ti-check"></i> Entrega imediata</span>
+            <span class="trust-chip"><i class="ti ti-check"></i> Excel + Google Sheets</span>
+            <span class="trust-chip"><i class="ti ti-check"></i> Garantia 7 dias</span>
+          </div>
+        </div>
+
+        <div class="hero-img-wrap reveal reveal-delay-2">
+          <div class="hero-img-frame">
+            <div class="hero-img-traffic">
+              <span style="background:#EF4444;"></span>
+              <span style="background:#F59E0B;"></span>
+              <span style="background:#52B788;"></span>
+            </div>
+            <img src="imagens/dashboard.png"
+                 alt="Dashboard real da planilha Cofre Certo — receitas, despesas, saldo e semáforo 50/30/20"
+                 loading="eager"
+                 fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       PROVA SOCIAL (chips)
+  ═════════════════════════════════════════ -->
+  <div id="prova-social">
+    <div class="prova-inner">
+      <span class="prova-item"><i class="ti ti-bell-ringing"></i> Alerta antes do saldo zerar</span>
+      <span class="prova-divider"></span>
+      <span class="prova-item"><i class="ti ti-device-mobile"></i> Lance gastos pelo celular</span>
+      <span class="prova-divider"></span>
+      <span class="prova-item"><i class="ti ti-users-group"></i> Divisão proporcional por renda</span>
+      <span class="prova-divider"></span>
+      <span class="prova-item"><i class="ti ti-flag"></i> Categorias 100% brasileiras</span>
+    </div>
+  </div>
+
+  <!--
+  ═════════════════════════════════════════
+       DEPOIMENTOS — OCULTO ATÉ TER DEPOIMENTOS REAIS
+       Para ativar: remover este comentário externo
+  ═════════════════════════════════════════
+
+  <section id="depoimentos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">O que dizem quem já usa</span>
+        <h2>Depoimentos reais de compradores</h2>
+      </div>
+
+      SUBSTITUIR: colar depoimento real aqui
+      <div class="depoimento-card reveal">
+        <div class="depoimento-stars">★★★★★</div>
+        <p class="depoimento-texto">"[Depoimento do comprador virá aqui]"</p>
+        <div class="depoimento-autor-nome">[Nome]</div>
+        <div class="depoimento-autor-id">Comprador Cofre Certo</div>
+      </div>
+
+    </div>
+  </section>
+
+  -->
+
+  <!-- ═════════════════════════════════════════
+       PROBLEMA
+  ═════════════════════════════════════════ -->
+  <section id="problema">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">A dor que ninguém fala</span>
+        <h2>Para onde foi o dinheiro esse mês?</h2>
+        <p>
+          <strong>77% das famílias brasileiras estão endividadas.</strong>
+          E ninguém nasce sabendo cuidar de dinheiro.
+        </p>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal reveal-delay-1">
+          <div class="pain-icon"><i class="ti ti-mood-confuzed"></i></div>
+          <div>
+            <h3>Não sabe pra onde foi o dinheiro no fim do mês</h3>
+            <p>O salário cai, as contas aparecem e no dia 15 já não sobrou nada.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-2">
+          <div class="pain-icon"><i class="ti ti-device-mobile-off"></i></div>
+          <div>
+            <h3>Quer lançar pelo celular, mas planilha é complicada</h3>
+            <p>Abrir Excel no celular é uma bagunça. Fica pra depois e nunca acontece.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <div class="pain-icon"><i class="ti ti-trending-down"></i></div>
+          <div>
+            <h3>Tem dívidas e não sabe por onde começar a sair</h3>
+            <p>Cartão, cheque especial, empréstimo — cada um com juros diferentes.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-4">
+          <div class="pain-icon"><i class="ti ti-bell-off"></i></div>
+          <div>
+            <h3>O banco avisa do saldo negativo quando já é tarde</h3>
+            <p>O SMS chega depois que o dano já foi feito.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="fonte-dado reveal">
+        Fonte: <a href="https://pesquisascnc.com.br/pesquisa-peic/" target="_blank" rel="noopener">PEIC/CNC 2024</a>
+        — Pesquisa de Endividamento e Inadimplência do Consumidor.
+      </p>
+
+      <div class="problema-cta reveal">
+        <p class="problema-frase">"Se você marcou pelo menos um, a planilha foi feita pra você."</p>
+        <a href="https://pay.hotmart.com/I105294110E" class="btn btn-primary" target="_blank" rel="noopener">
+          Quero resolver isso agora
+          <i class="ti ti-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       ANTES vs DEPOIS
+  ═════════════════════════════════════════ -->
+  <section id="antes-depois">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">A virada</span>
+        <h2>O que muda na sua cabeça (e no bolso)</h2>
+        <p>Não é sobre uma planilha bonita. É sobre parar de viver no escuro.</p>
+      </div>
+
+      <div class="transformacao reveal">
+        <div class="transf-col antes">
+          <div class="transf-header">
+            <div>
+              <span class="label antes-label">Antes</span>
+              <h3>Sem método</h3>
+            </div>
+          </div>
+          <div class="transf-list">
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              "Não sei pra onde foi o dinheiro."
+            </div>
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              Briga em casa por quem paga o quê.
+            </div>
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              Descobrir saldo negativo pelo SMS do banco.
+            </div>
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              "Plano? Tô empurrando com a barriga."
+            </div>
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              Excel parece coisa de outro mundo — desiste em duas semanas.
+            </div>
+            <div class="transf-item bad">
+              <span class="icon"><i class="ti ti-x"></i></span>
+              Cada mês é uma corrida atrás do prejuízo.
+            </div>
+          </div>
+        </div>
+
+        <div class="transf-divider"><span><i class="ti ti-arrow-right"></i></span></div>
+
+        <div class="transf-col depois">
+          <div class="transf-header">
+            <div>
+              <span class="label depois-label">Depois</span>
+              <h3>Com método</h3>
+            </div>
+          </div>
+          <div class="transf-list">
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Vê cada centavo, com gráfico e semáforo.
+            </div>
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Cada um sabe sua cota — proporcional à renda.
+            </div>
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Recebe aviso por e-mail antes de furar o saldo.
+            </div>
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Tem uma data clara pra sair do vermelho.
+            </div>
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Lança gasto pelo celular em 30 segundos.
+            </div>
+            <div class="transf-item good">
+              <span class="icon"><i class="ti ti-check"></i></span>
+              Resumo automático no e-mail todo dia 1º.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       COMO FUNCIONA
+  ═════════════════════════════════════════ -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Como funciona</span>
+        <h2>Três passos. Sem curso, sem código, sem mistério.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step reveal reveal-delay-1">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="ti ti-download"></i></div>
+          <h3>Baixe e configure</h3>
+          <p>
+            Preencha gastos fixos e a renda de cada membro da família.
+            Leva menos de 5 minutos.
+          </p>
+          <span class="step-badge">Configuração inicial</span>
+        </div>
+
+        <div class="step-arrow reveal"><i class="ti ti-chevrons-right"></i></div>
+
+        <div class="step reveal reveal-delay-2">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="ti ti-device-mobile"></i></div>
+          <h3>Lance pelo celular</h3>
+          <p>
+            Salve o link do formulário Google na tela inicial do celular —
+            registra qualquer gasto em segundos.
+          </p>
+          <span class="step-badge">Diário · ~10 min</span>
+          <div class="step-celphone-mock">
+            <div class="step-celphone-mock-inner">
+              <img src="imagens/formulario-celular.png" alt="Formulário de lançamento no celular" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <div class="step-arrow reveal"><i class="ti ti-chevrons-right"></i></div>
+
+        <div class="step reveal reveal-delay-3">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="ti ti-mail-check"></i></div>
+          <h3>Receba o resumo</h3>
+          <p>
+            Todo dia 1º do mês, um e-mail automático chega com o
+            balanço completo e o status da sua saúde financeira.
+          </p>
+          <span class="step-badge">Automático</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       FUNCIONALIDADES (Bento)
+  ═════════════════════════════════════════ -->
+  <section id="funcionalidades">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">O que tem dentro</span>
+        <h2>Tudo que você precisa, em um arquivo só</h2>
+        <p>Cada funcionalidade foi pensada para a realidade financeira brasileira.</p>
+      </div>
+
+      <div class="bento">
+
+        <!-- HERÓI: Divisão Familiar -->
+        <div class="bento-card white hero-card reveal">
+          <span class="bento-card-badge">Exclusivo</span>
+          <div class="divisao-hero-layout">
+            <div>
+              <div class="bento-card-icon"><i class="ti ti-users-group"></i></div>
+              <h3 style="font-size:1.3rem;">Divisão Proporcional de Despesas</h3>
+              <p>
+                Cada membro contribui conforme o que ganha. Se você recebe 70% da renda
+                da família, paga 70% das contas fixas — automaticamente, sem calculadora,
+                sem discussão.
+              </p>
+              <div class="divisao-checklist">
+                <div class="divisao-checklist-item">
+                  <i class="ti ti-circle-check-filled"></i>
+                  Até 6 membros por família
+                </div>
+                <div class="divisao-checklist-item">
+                  <i class="ti ti-circle-check-filled"></i>
+                  Percentual recalculado automaticamente pela renda informada
+                </div>
+                <div class="divisao-checklist-item">
+                  <i class="ti ti-circle-check-filled"></i>
+                  Cada um vê sua cota e quanto sobra da renda
+                </div>
+                <div class="divisao-checklist-item">
+                  <i class="ti ti-circle-check-filled"></i>
+                  Integrado ao Dashboard — sem duplicar dados
+                </div>
+              </div>
+            </div>
+            <img src="imagens/divisao_familiar.png"
+                 alt="Aba Divisão Familiar — cota proporcional por membro"
+                 decoding="async"
+                 onclick="abrirLightbox('imagens/divisao_familiar.png','Divisão Familiar — Cota Proporcional')">
+          </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="bento-card white reveal reveal-delay-1">
+          <div class="bento-card-icon"><i class="ti ti-chart-pie"></i></div>
+          <h3>Dashboard Visual Automático</h3>
+          <p>Semáforo 50/30/20, gastos por categoria e comparativo mensal — atualizado em tempo real.</p>
+          <img src="imagens/dashboard.png"
+               alt="Dashboard financeiro" style="height:180px;object-fit:cover;object-position:top;"
+               decoding="async"
+               onclick="abrirLightbox('imagens/dashboard.png','Dashboard Financeiro')">
+        </div>
+
+        <!-- Formulário Celular -->
+        <div class="bento-card reveal reveal-delay-2 bento-tall">
+          <div class="bento-card-icon"><i class="ti ti-device-mobile"></i></div>
+          <h3>Formulário pelo Celular</h3>
+          <p>Lance qualquer gasto em 30 segundos pelo Google Forms — salva direto na planilha.</p>
+          <div style="text-align:center;margin-top:auto;padding-top:20px;">
+            <div style="display:inline-block;background:#111;border-radius:24px;padding:8px 6px;box-shadow:var(--shadow-md);">
+              <div style="border-radius:18px;overflow:hidden;width:140px;">
+                <img src="imagens/formulario-celular.png" alt="Formulário Google no celular"
+                     style="width:140px;height:240px;object-fit:cover;object-position:top;display:block;margin:0;border:0;border-radius:0;"
+                     decoding="async">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alertas E-mail -->
+        <div class="bento-card white reveal reveal-delay-3">
+          <div class="bento-card-icon"><i class="ti ti-mail"></i></div>
+          <h3>Alertas Automáticos por E-mail</h3>
+          <p>Receba aviso antes do saldo zerar — não depois. Configure o limite e deixe a planilha trabalhar por você.</p>
+          <!-- Mockup de e-mail -->
+          <div style="background:#f8fafc;border-radius:var(--r-md);border:1px solid var(--borda);overflow:hidden;margin-top:16px;">
+            <div style="background:var(--verde-cofre);padding:9px 14px;display:flex;align-items:center;gap:6px;">
+              <i class="ti ti-mail" style="color:rgba(255,255,255,.6);font-size:.85rem;"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,.7);">Resumo do mês — Cofre Certo</span>
+            </div>
+            <div style="padding:14px 16px;">
+              <p style="font-size:12px;font-weight:600;color:var(--texto);margin:0 0 10px;line-height:1.4;">
+                Resumo Financeiro — Janeiro 2025
+              </p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                <div style="background:var(--verde-suave);border-radius:6px;padding:8px;text-align:center;">
+                  <div style="font-size:14px;font-weight:700;color:var(--verde-cofre);">R$ 6.200</div>
+                  <div style="font-size:10px;color:var(--texto-sec);">Receitas</div>
+                </div>
+                <div style="background:#FEF3C7;border-radius:6px;padding:8px;text-align:center;">
+                  <div style="font-size:14px;font-weight:700;color:#92400E;">R$ 4.513</div>
+                  <div style="font-size:10px;color:#B45309;">Despesas</div>
+                </div>
+              </div>
+              <div style="background:var(--verde-acao);border-radius:6px;padding:8px;text-align:center;">
+                <span style="font-size:12px;color:#fff;font-weight:600;">Saldo: +R$ 1.687 · Saúde: Boa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controle de Metas -->
+        <div class="bento-card white bento-half reveal">
+          <div class="bento-card-icon"><i class="ti ti-target"></i></div>
+          <h3>Controle de Metas</h3>
+          <p>Defina objetivos com barra de progresso visual e prazo. Reserva, viagem, troca de carro — acompanhe tudo.</p>
+          <img src="imagens/metas.png" alt="Aba Metas"
+               style="height:130px;object-fit:cover;object-position:top;"
+               decoding="async"
+               onclick="abrirLightbox('imagens/metas.png','Controle de Metas')">
+        </div>
+
+        <!-- Plano Anti-Dívida -->
+        <div class="bento-card white bento-half reveal reveal-delay-1">
+          <div class="bento-card-icon"><i class="ti ti-trending-up"></i></div>
+          <h3>Plano para Sair do Vermelho</h3>
+          <p>Organize dívidas por juros, escolha entre Bola de Neve e Avalanche, e acompanhe seu progresso mês a mês.</p>
+          <img src="imagens/recuperacao.png" alt="Aba Recuperação Financeira"
+               style="height:130px;object-fit:cover;object-position:top;"
+               decoding="async"
+               onclick="abrirLightbox('imagens/recuperacao.png','Recuperação Financeira')">
+        </div>
+
+        <!-- Feito pro Brasil -->
+        <div class="bento-card bento-wide reveal reveal-delay-2">
+          <div class="bento-card-icon"><i class="ti ti-flag"></i></div>
+          <h3>Feito para a realidade brasileira</h3>
+          <p style="margin-bottom:16px;">Categorias, termos e lógica do dia a dia. Nada de tradução de planilha gringa.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;">
+            <span class="categoria-pill">13º Salário</span>
+            <span class="categoria-pill">Vale-Alimentação</span>
+            <span class="categoria-pill">PIX</span>
+            <span class="categoria-pill">Cheque Especial</span>
+            <span class="categoria-pill">FGTS</span>
+            <span class="categoria-pill">CLT</span>
+            <span class="categoria-pill">MEI</span>
+            <span class="categoria-pill">Bolsa Família</span>
+            <span class="categoria-pill">Auxílio-Emergência</span>
+            <span class="categoria-pill">Cartão de Crédito</span>
+            <span class="categoria-pill">IPTU</span>
+            <span class="categoria-pill">Tesouro Selic</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       PARA QUEM É
+  ═════════════════════════════════════════ -->
+  <section id="para-quem">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow eyebrow-dark">Para quem é</span>
+        <h2>Não importa onde você está — tem um caminho</h2>
+        <p>A planilha se adapta à sua situação financeira atual.</p>
+      </div>
+
+      <div class="quem-grid">
+        <div class="quem-card reveal reveal-delay-1">
+          <div class="quem-icon" style="background:rgba(82,183,136,.12);">
+            <i class="ti ti-users" style="color:var(--verde-acao);"></i>
+          </div>
+          <h3>Família CLT</h3>
+          <p>Salário fixo, mas sempre aperto no fim do mês? A planilha mostra onde está o vazamento — e como tampar.</p>
+          <span class="pill" style="background:rgba(82,183,136,.1);color:var(--verde-acao);font-size:.72rem;">Controle mensal</span>
+        </div>
+        <div class="quem-card reveal reveal-delay-2">
+          <div class="quem-icon" style="background:rgba(212,160,23,.12);">
+            <i class="ti ti-briefcase" style="color:var(--dourado);"></i>
+          </div>
+          <h3>Autônomo / MEI</h3>
+          <p>Renda variável é mais difícil de controlar. A aba aceita múltiplas fontes e reserva para impostos.</p>
+          <span class="pill" style="background:rgba(212,160,23,.1);color:var(--dourado);font-size:.72rem;">Renda variável</span>
+        </div>
+        <div class="quem-card reveal reveal-delay-3">
+          <div class="quem-icon" style="background:rgba(239,68,68,.12);">
+            <i class="ti ti-trending-down" style="color:var(--alerta);"></i>
+          </div>
+          <h3>Negativado / Endividado</h3>
+          <p>A aba de Recuperação ajuda a priorizar pagamentos e sair do vermelho com plano real — Bola de Neve ou Avalanche.</p>
+          <span class="pill" style="background:rgba(239,68,68,.1);color:var(--alerta);font-size:.72rem;">Saída do vermelho</span>
+        </div>
+        <div class="quem-card reveal reveal-delay-4">
+          <div class="quem-icon" style="background:rgba(82,183,136,.12);">
+            <i class="ti ti-heart" style="color:var(--verde-acao);"></i>
+          </div>
+          <h3>Casal com rendas diferentes</h3>
+          <p>Ela ganha mais, ele ganha menos — e a conta de luz não sabe disso. A Divisão Familiar resolve sem briga.</p>
+          <span class="pill" style="background:rgba(82,183,136,.1);color:var(--verde-cofre);font-size:.72rem;">Divisão proporcional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       QUEM FEZ (Manifesto)
+  ═════════════════════════════════════════ -->
+  <section id="quem-fez">
+    <div class="container">
+      <div class="manifesto reveal">
+        <span class="manifesto-selo">Quem fez essa planilha</span>
+        <h2>Isso aqui não é de agência. <em>É de quem já esteve do outro lado.</em></h2>
+
+        <div class="manifesto-corpo">
+          <p>
+            O Cofre Certo nasceu de uma pergunta simples:
+            <strong>por que é tão difícil entender pra onde vai o dinheiro no fim do mês?</strong>
+          </p>
+          <p>
+            Quem está por trás disso passou boa parte da vida ganhando pouco,
+            trabalhando muito e olhando pro extrato sem entender muita coisa.
+            Faculdade, MBA, emprego, demissão, recomeço. Chegou um ponto em que
+            o problema não era ganhar mais — era
+            <strong>não saber o que fazer com o que já entrava.</strong>
+          </p>
+          <p>
+            A solução foi construir algo do zero. Uma planilha que funciona de verdade —
+            com dashboard, alertas automáticos e formulário pelo celular. Sem app de
+            mensalidade. Sem virar especialista em Excel. Sem aquele visual confuso que
+            ninguém aguenta usar por mais de duas semanas.
+          </p>
+        </div>
+
+        <div class="manifesto-signature">
+          <img src="imagens/logo.png" alt="Cofre Certo">
+          <span class="manifesto-signature-text">"Sem rosto, sem nome, sem palco. Só método."</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       PACOTE + PREÇO
+  ═════════════════════════════════════════ -->
+  <section id="pacote">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">O pacote</span>
+        <h2>Tudo isso por R$35,00 — pagamento único</h2>
+        <p>Sem mensalidade. Sem assinatura. Atualizações futuras sem custo extra.</p>
+      </div>
+
+      <div class="pacote-grid">
+        <div>
+          <ul class="checklist reveal">
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Planilha Excel (.xlsx) para Windows e Mac</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Planilha Google Sheets com automações completas</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Apps Script pronto pra instalar — sem programar</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Formulário de celular configurável em 10 minutos</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Alertas de e-mail automáticos (saldo negativo)</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Resumo mensal automático todo dia 1º</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Aba Divisão Familiar — até 6 membros, proporcional à renda</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Plano de saída do vermelho (Bola de Neve · Avalanche)</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Calculadora de Reserva de Emergência por perfil</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Guia visual passo a passo dentro da planilha</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Dados de demonstração pré-preenchidos</li>
+            <li><i class="ti ti-circle-check-filled check-icon"></i> Suporte via Hotmart</li>
+          </ul>
+
+          <div class="reveal reveal-delay-1">
+            <p class="screenshots-thumbs-title">Todas as 8 abas da planilha:</p>
+            <div class="screenshots-grid">
+              <div class="thumb-item" onclick="abrirLightbox('imagens/instrucoes.png','Instruções — Guia de uso')">
+                <img src="imagens/instrucoes.png" alt="Aba Instruções" decoding="async">
+                <span class="thumb-label">Instruções</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/configuracao.png','Configuração da Família')">
+                <img src="imagens/configuracao.png" alt="Aba Configuração" decoding="async">
+                <span class="thumb-label">Configuração</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/lancamentos.png','Registro de Lançamentos')">
+                <img src="imagens/lancamentos.png" alt="Aba Lançamentos" decoding="async">
+                <span class="thumb-label">Lançamentos</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/dashboard.png','Dashboard Financeiro')">
+                <img src="imagens/dashboard.png" alt="Aba Dashboard" decoding="async">
+                <span class="thumb-label">Dashboard</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/divisao_familiar.png','Divisão Familiar')">
+                <img src="imagens/divisao_familiar.png" alt="Aba Divisão Familiar" decoding="async">
+                <span class="thumb-label">Divisão Familiar</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/metas.png','Metas Financeiras')">
+                <img src="imagens/metas.png" alt="Aba Metas" decoding="async">
+                <span class="thumb-label">Metas</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/reserva.png','Reserva de Emergência')">
+                <img src="imagens/reserva.png" alt="Aba Reserva" decoding="async">
+                <span class="thumb-label">Reserva</span>
+              </div>
+              <div class="thumb-item" onclick="abrirLightbox('imagens/recuperacao.png','Recuperação Financeira')">
+                <img src="imagens/recuperacao.png" alt="Aba Recuperação" decoding="async">
+                <span class="thumb-label">Recuperação</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="preco-card">
+            <span class="preco-label">Acesso vitalício</span>
+            <div class="preco-value">R$ 35,00</div>
+            <p class="preco-sub">Pagamento único · Acesso para sempre</p>
+
+            <div class="preco-comparacao">
+              Menos do que <strong>um almoço por mês</strong> — ou <strong>3 cafés</strong>.
+            </div>
+
+            <a href="https://pay.hotmart.com/I105294110E"
+               class="btn btn-gold btn-lg btn-full"
+               target="_blank" rel="noopener">
+              Comprar agora
+              <i class="ti ti-arrow-right"></i>
+            </a>
+
+            <p class="preco-micro"><i class="ti ti-lock"></i> Pagamento seguro · Cartão, PIX ou Boleto</p>
+            <p class="preco-micro"><i class="ti ti-bolt"></i> Acesso liberado em menos de 1 minuto</p>
+
+            <div class="preco-selos">
+              <span class="selo"><i class="ti ti-shield-check"></i> Seguro</span>
+              <span class="selo"><i class="ti ti-rotate-clockwise"></i> 7 dias</span>
+              <span class="selo"><i class="ti ti-bolt"></i> Imediato</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       GARANTIA
+  ═════════════════════════════════════════ -->
+  <section id="garantia">
+    <div class="container">
+      <div class="garantia-inner reveal">
+        <div class="garantia-icon"><i class="ti ti-shield-check"></i></div>
+        <h2>Garantia incondicional de 7 dias</h2>
+        <p>
+          Se a planilha não funcionar pra você por qualquer motivo, devolvemos 100% do
+          seu dinheiro. Sem burocracia. Você pede direto pela Hotmart e pronto —
+          nenhuma pergunta feita.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       FAQ
+  ═════════════════════════════════════════ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Perguntas frequentes</span>
+        <h2>O que as pessoas querem saber antes de comprar</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Preciso saber Excel pra usar?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Não. A planilha foi pensada pra quem nunca mexeu com Excel.
+            Você só preenche as células em <strong>azul</strong> — todo o resto é
+            calculado automaticamente. Tem uma aba de Instruções dentro do arquivo
+            que te guia passo a passo.
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Funciona no celular?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim, do jeito mais simples possível. A gente cria um
+            <strong>Google Forms integrado à planilha</strong> e te ensina a salvar
+            o link na tela inicial do celular — fica parecido com um app.
+            Você abre, lança o gasto em 30 segundos e os dados entram automaticamente
+            na planilha no computador.
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Quanto tempo eu preciso dedicar por dia?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <strong>No máximo 10 minutos por dia</strong> — e geralmente bem menos.
+            O segredo é lançar o gasto na hora que acontece, pelo formulário do
+            celular. O resto (cálculos, gráficos, semáforo, alertas) a planilha faz sozinha.
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-4">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Funciona no Google Sheets (gratuito)?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim. Você recebe a versão Google Sheets com todas as automações já
+            configuradas via Apps Script — alertas por e-mail, formulário de
+            celular e resumo mensal. Basta copiar pro seu Google Drive e ativar.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            É um aplicativo? Conecta com o banco? Lê foto de nota fiscal?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <strong>Não, e a gente faz questão de ser honesto sobre isso.</strong>
+            O Cofre Certo é uma <strong>planilha com automações</strong> —
+            não é um app, não conecta com Open Banking, não scaneia nota fiscal.
+            É simples, prática e resolve a dor do dia a dia: registrar gastos
+            rapidamente e enxergar pra onde vai o dinheiro.
+            Se você quer integração com banco, este produto não é pra você.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Funciona pra casal com rendas diferentes?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim — e é uma das funcionalidades favoritas. A aba <strong>Divisão Familiar</strong>
+            calcula o percentual de cada um pela renda informada. Se você ganha
+            R$ 7.000 e sua parceira R$ 3.000, a planilha define que você paga 70%
+            das despesas fixas e ela paga 30% — sem calculadora, sem briga.
+            Funciona pra até 6 membros.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            O que é o método 50/30/20 que aparece no Dashboard?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            É um dos métodos de orçamento mais validados do mundo, recomendado pelo
+            <strong>Banco Central</strong>, <strong>Serasa</strong> e <strong>Sicredi</strong>:
+            50% da renda pra necessidades (moradia, alimentação, contas),
+            30% pra desejos e lazer, 20% pra poupança e dívidas. O semáforo do
+            Dashboard mostra automaticamente se você está dentro do ideal.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Tem suporte? Como funciona?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim. O suporte é feito <strong>através da Hotmart</strong> — qualquer
+            dúvida ou problema, é só abrir um chamado direto pela plataforma onde
+            você comprou. A própria Hotmart intermedia e garante a resposta.
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Recebo atualizações futuras?
+            <i class="ti ti-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Sim. Todas as atualizações futuras da planilha vão pra você
+            <strong>sem custo adicional</strong>. Você paga uma vez e tem acesso
+            pra sempre — incluindo melhorias e novas funcionalidades.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       CTA FINAL
+  ═════════════════════════════════════════ -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="reveal">
+        <h2>Em 5 minutos você já sabe pra onde foi seu dinheiro.</h2>
+        <p>
+          Configure uma vez. Use no celular, no Excel ou no Google Sheets.
+          Se não gostar, devolvemos tudo em 7 dias — sem perguntas.
+        </p>
+        <a href="https://pay.hotmart.com/I105294110E" class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+          Quero a planilha por R$ 35,00
+          <i class="ti ti-arrow-right"></i>
+        </a>
+        <p class="cta-micro">
+          <i class="ti ti-lock"></i> Pagamento seguro via Hotmart · Cartão, PIX ou Boleto · Garantia de 7 dias
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════
+       FOOTER
+  ═════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="imagens/logo_dark.png" alt="Cofre Certo" class="footer-logo">
+          <p class="footer-tagline">"Guarde no lugar certo, viva sem sufoco."</p>
+          <p class="footer-copy">© 2026 Cofre Certo. Todos os direitos reservados.</p>
+        </div>
+
+        <div>
+          <p class="footer-heading">Produto</p>
+          <nav class="footer-links">
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#funcionalidades">Funcionalidades</a>
+            <a href="#para-quem">Para quem é</a>
+            <a href="#pacote">O que vem no pacote</a>
+            <a href="#faq">Perguntas frequentes</a>
+            <a href="https://pay.hotmart.com/I105294110E" target="_blank" rel="noopener">Comprar</a>
+            <a href="feedback.html">Deixar avaliação</a>
+          </nav>
+        </div>
+
+        <div>
+          <p class="footer-heading">Confiança</p>
+          <div class="footer-trust">
+            <div class="footer-trust-item">
+              <i class="ti ti-lock"></i>
+              <span>Pagamento via Hotmart</span>
+            </div>
+            <div class="footer-trust-item">
+              <i class="ti ti-shield-check"></i>
+              <span>Garantia incondicional de 7 dias</span>
+            </div>
+            <div class="footer-trust-item">
+              <i class="ti ti-rotate-clockwise"></i>
+              <span>Atualizações futuras inclusas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-bottom">cofrecerto.com.br</p>
+    </div>
+  </footer>
+
+  <!-- ═════════════════════════════════════════
+       LIGHTBOX
+  ═════════════════════════════════════════ -->
+  <div id="lightbox" onclick="fecharLightbox()" role="dialog" aria-modal="true">
+    <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Imagem ampliada">
+    <p id="lb-title" class="lb-title"></p>
+    <p class="lb-hint">Clique ou pressione Esc para fechar</p>
+  </div>
+
+  <!-- ═════════════════════════════════════════
+       JAVASCRIPT
+  ═════════════════════════════════════════ -->
+  <script>
+    // Scroll progress bar
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      scrollBar.style.width = pct + '%';
+    }, { passive: true });
+
+    // Navbar scrolled state
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // FAQ accordion (open one at a time)
+    function toggleFaq(questionEl) {
+      const item = questionEl.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Lightbox
+    function abrirLightbox(src, titulo) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lb-title').textContent = titulo || '';
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') fecharLightbox();
+    });
+  </script>
+</body>
+</html>

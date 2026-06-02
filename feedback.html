@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-429QSDNZQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-429QSDNZQE');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deixe sua avaliação — Cofre Certo</title>
+  <meta name="description" content="Conte como foi sua experiência com a Planilha Cofre Certo. Sua avaliação nos ajuda a melhorar.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/png" href="imagens/favicon_256.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ── Feedback page – specific styles ── */
+
+    #feedback-hero {
+      background: var(--verde-noite);
+      background-image: radial-gradient(circle, rgba(82,183,136,.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      padding: clamp(48px, 8vw, 80px) 0 clamp(40px, 6vw, 64px);
+      text-align: center;
+    }
+    #feedback-hero .hero-badge {
+      background: rgba(82,183,136,.15);
+      border: 1px solid rgba(82,183,136,.3);
+      color: var(--verde-acao);
+      margin-bottom: 20px;
+    }
+    #feedback-hero h1 {
+      color: #fff;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+    #feedback-hero p {
+      color: rgba(255,255,255,.65);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── Form section ── */
+    #feedback-form-section {
+      background: var(--fundo);
+      padding: clamp(48px, 8vw, 80px) 0;
+    }
+
+    .feedback-card {
+      background: var(--fundo-card);
+      border: 1px solid var(--borda);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 5vw, 48px) clamp(24px, 5vw, 48px);
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ── Form fields ── */
+    .field-group {
+      margin-bottom: 28px;
+    }
+    .field-label {
+      display: block;
+      font-weight: 600;
+      font-size: .93rem;
+      color: var(--texto);
+      margin-bottom: 8px;
+    }
+    .field-label .required-mark {
+      color: var(--alerta);
+      margin-left: 3px;
+    }
+    .field-hint {
+      font-size: .8rem;
+      color: var(--texto-muted);
+      margin-top: 4px;
+    }
+
+    .field-input,
+    .field-textarea {
+      width: 100%;
+      font-family: var(--font);
+      font-size: .95rem;
+      color: var(--texto);
+      background: var(--fundo);
+      border: 1.5px solid var(--borda);
+      border-radius: var(--r-md);
+      padding: 12px 16px;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .field-input:focus,
+    .field-textarea:focus {
+      border-color: var(--verde-acao);
+      box-shadow: 0 0 0 3px rgba(82,183,136,.12);
+    }
+    .field-textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    /* ── Radio groups ── */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1.5px solid var(--borda);
+      border-radius: var(--r-md);
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      user-select: none;
+    }
+    .radio-option:hover {
+      border-color: var(--verde-acao);
+      background: var(--verde-suave);
+    }
+    .radio-option input[type="radio"] {
+      accent-color: var(--verde-acao);
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .radio-option input[type="radio"]:checked + .radio-label {
+      color: var(--verde-cofre);
+      font-weight: 600;
+    }
+    .radio-option:has(input[type="radio"]:checked) {
+      border-color: var(--verde-acao);
+      background: var(--verde-suave);
+    }
+    .radio-label {
+      font-size: .93rem;
+      color: var(--texto-sec);
+      transition: color .2s;
+    }
+
+    /* ── Star rating ── */
+    .star-rating {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+    .star-rating label {
+      font-size: 2.2rem;
+      color: var(--borda-forte);
+      cursor: pointer;
+      transition: color .15s, transform .15s;
+      line-height: 1;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: var(--borda-forte);
+    }
+    /* Highlight hovered star and all before it */
+    .star-rating:has(label:hover) label {
+      color: var(--borda-forte);
+    }
+    .star-rating label:hover,
+    .star-rating label:has(~ label:hover),
+    .star-rating:has(label:hover) label:hover ~ label {
+      color: var(--borda-forte);
+    }
+    /* CSS-only star hover — fill stars up to hovered */
+    .star-wrap {
+      display: flex;
+      gap: 6px;
+      flex-direction: row-reverse;
+      margin-top: 4px;
+    }
+    .star-wrap input[type="radio"] {
+      display: none;
+    }
+    .star-wrap label {
+      font-size: 2.4rem;
+      color: var(--borda-forte);
+      cursor: pointer;
+      transition: color .15s, transform .15s;
+      line-height: 1;
+    }
+    .star-wrap label:hover,
+    .star-wrap label:hover ~ label {
+      color: var(--dourado);
+      transform: scale(1.1);
+    }
+    .star-wrap input[type="radio"]:checked ~ label {
+      color: var(--dourado);
+    }
+
+    /* ── Error messages ── */
+    .field-error {
+      display: none;
+      font-size: .8rem;
+      color: var(--alerta);
+      margin-top: 6px;
+      align-items: center;
+      gap: 4px;
+    }
+    .field-error.visible {
+      display: flex;
+    }
+    .field-group.has-error .field-input,
+    .field-group.has-error .field-textarea {
+      border-color: var(--alerta);
+    }
+    .field-group.has-error .star-wrap label {
+      /* no change needed for stars */
+    }
+
+    /* ── Divider ── */
+    .form-divider {
+      height: 1px;
+      background: var(--borda);
+      margin: 32px 0;
+    }
+
+    /* ── Submit area ── */
+    .submit-area {
+      text-align: center;
+      padding-top: 8px;
+    }
+    .btn-submit {
+      min-width: 200px;
+    }
+    .btn-submit:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* ── Thank you screen ── */
+    #thankyou {
+      display: none;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 48px);
+    }
+    .ty-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: rgba(82,183,136,.12);
+      border: 2px solid var(--verde-acao);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2.8rem;
+      color: var(--verde-acao);
+    }
+    #thankyou h2 {
+      color: var(--verde-cofre);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 14px;
+    }
+    #thankyou > p {
+      color: var(--texto-sec);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .ty-divider {
+      height: 1px;
+      background: var(--borda);
+      margin: 0 auto 28px;
+      max-width: 320px;
+    }
+    .ty-secondary {
+      font-size: .93rem;
+      color: var(--texto-sec);
+      max-width: 400px;
+      margin: 0 auto 22px;
+    }
+    .ty-optional {
+      font-size: .78rem;
+      color: var(--texto-muted);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .star-wrap label { font-size: 2rem; }
+    }
+  </style>
+
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div id="scroll-bar"></div>
+
+  <!-- ═══════════════════════════════
+       NAVBAR
+  ═══════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo" aria-label="Cofre Certo — página inicial">
+        <img src="imagens/logo.png" alt="Cofre Certo — Planilha Financeira Familiar" class="nav-logo">
+      </a>
+      <div class="nav-right">
+        <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+        <a href="index.html#funcionalidades" class="nav-link">Funcionalidades</a>
+        <a href="index.html#faq" class="nav-link">Perguntas</a>
+        <a href="https://pay.hotmart.com/I105294110E" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+          Comprar R$35,00
+          <i class="ti ti-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════
+       HERO
+  ═══════════════════════════════ -->
+  <section id="feedback-hero">
+    <div class="container reveal">
+      <span class="pill hero-badge">
+        <i class="ti ti-star"></i> Avaliação de produto
+      </span>
+      <h1>Como foi sua experiência com o Cofre Certo?</h1>
+      <p>Sua resposta leva menos de 2 minutos e ajuda a melhorar para mais famílias brasileiras.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       FORM SECTION
+  ═══════════════════════════════ -->
+  <section id="feedback-form-section">
+    <div class="container">
+
+      <!-- FORM -->
+      <div class="feedback-card reveal" id="form-card">
+        <form id="feedback-form" novalidate>
+
+          <!-- 1. Nome -->
+          <div class="field-group" id="group-nome">
+            <label class="field-label" for="nome">
+              Seu nome <span class="required-mark">*</span>
+            </label>
+            <input
+              class="field-input"
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Como prefere ser chamado(a)"
+              autocomplete="given-name"
+            >
+            <div class="field-error" id="error-nome">
+              <i class="ti ti-alert-circle"></i> Por favor, informe seu nome.
+            </div>
+          </div>
+
+          <!-- 2. Versão usada -->
+          <div class="field-group">
+            <span class="field-label">Qual versão você usou?</span>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="versao" value="Google Sheets">
+                <span class="radio-label">Google Sheets</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="versao" value="Excel">
+                <span class="radio-label">Excel</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="versao" value="Ainda não configurei">
+                <span class="radio-label">Ainda não configurei</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 3. Nota de 1 a 5 -->
+          <div class="field-group" id="group-nota">
+            <span class="field-label">
+              Qual nota você dá para a planilha? <span class="required-mark">*</span>
+            </span>
+            <!-- row-reverse trick: CSS :checked ~ label fills stars to the left -->
+            <div class="star-wrap" role="radiogroup" aria-label="Nota de 1 a 5 estrelas">
+              <input type="radio" name="nota" id="star5" value="5">
+              <label for="star5" title="5 estrelas" aria-label="5 estrelas">&#9733;</label>
+              <input type="radio" name="nota" id="star4" value="4">
+              <label for="star4" title="4 estrelas" aria-label="4 estrelas">&#9733;</label>
+              <input type="radio" name="nota" id="star3" value="3">
+              <label for="star3" title="3 estrelas" aria-label="3 estrelas">&#9733;</label>
+              <input type="radio" name="nota" id="star2" value="2">
+              <label for="star2" title="2 estrelas" aria-label="2 estrelas">&#9733;</label>
+              <input type="radio" name="nota" id="star1" value="1">
+              <label for="star1" title="1 estrela" aria-label="1 estrela">&#9733;</label>
+            </div>
+            <div class="field-error" id="error-nota">
+              <i class="ti ti-alert-circle"></i> Selecione uma nota antes de enviar.
+            </div>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <!-- 4. O que mudou -->
+          <div class="field-group">
+            <label class="field-label" for="mudanca">
+              O que mudou na sua vida financeira depois da planilha?
+            </label>
+            <textarea
+              class="field-textarea"
+              id="mudanca"
+              name="mudanca"
+              placeholder="Pode ser algo pequeno ou grande — qualquer resultado conta."
+            ></textarea>
+          </div>
+
+          <!-- 5. O que poderia ser melhor -->
+          <div class="field-group">
+            <label class="field-label" for="melhoria">
+              O que poderia ser melhor?
+            </label>
+            <textarea
+              class="field-textarea"
+              id="melhoria"
+              name="melhoria"
+              placeholder="Críticas construtivas são muito bem-vindas."
+            ></textarea>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <!-- 6. Indicaria -->
+          <div class="field-group">
+            <span class="field-label">Você indicaria para alguém?</span>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="indicaria" value="Sim com certeza">
+                <span class="radio-label">Sim com certeza</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="indicaria" value="Talvez">
+                <span class="radio-label">Talvez</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="indicaria" value="Ainda não usei o suficiente">
+                <span class="radio-label">Ainda não usei o suficiente</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="indicaria" value="Não indicaria">
+                <span class="radio-label">Não indicaria</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 7. Uso como depoimento -->
+          <div class="field-group" id="group-depoimento">
+            <span class="field-label">
+              Posso usar sua resposta como depoimento no site? <span class="required-mark">*</span>
+            </span>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="depoimento" value="Sim pode usar">
+                <span class="radio-label">Sim, pode usar</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="depoimento" value="Prefiro que não">
+                <span class="radio-label">Prefiro que não</span>
+              </label>
+            </div>
+            <div class="field-error" id="error-depoimento">
+              <i class="ti ti-alert-circle"></i> Por favor, escolha uma opção.
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="submit-area">
+            <button
+              type="submit"
+              id="btn-submit"
+              class="btn btn-gold btn-lg btn-submit"
+            >
+              Enviar avaliação
+              <i class="ti ti-send"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- THANK YOU -->
+      <div id="thankyou" class="reveal" aria-live="polite">
+        <div class="ty-icon">
+          <i class="ti ti-circle-check-filled"></i>
+        </div>
+        <h2>Obrigado pela sua avaliação!</h2>
+        <p>Sua resposta chegou. Ela vai ajudar o Cofre Certo a melhorar para mais famílias brasileiras.</p>
+        <div class="ty-divider"></div>
+        <p class="ty-secondary">
+          Se tiver mais um minutinho, sua avaliação na Hotmart ajuda outras famílias a encontrar o produto.
+        </p>
+        <a
+          href="https://hotmart.com/pt-br/marketplace/produtos/cofre-certo-planilha-de-controle-financeiro-familiar/I105294110E"
+          class="btn btn-gold btn-lg"
+          target="_blank"
+          rel="noopener"
+        >
+          Avaliar na Hotmart
+          <i class="ti ti-arrow-right"></i>
+        </a>
+        <p class="ty-optional">Opcional — só se quiser :)</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       FOOTER
+  ═══════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="imagens/logo_dark.png" alt="Cofre Certo" class="footer-logo">
+          <p class="footer-tagline">"Guarde no lugar certo, viva sem sufoco."</p>
+          <p class="footer-copy">© 2026 Cofre Certo. Todos os direitos reservados.</p>
+        </div>
+
+        <div>
+          <p class="footer-heading">Produto</p>
+          <nav class="footer-links">
+            <a href="index.html#como-funciona">Como funciona</a>
+            <a href="index.html#funcionalidades">Funcionalidades</a>
+            <a href="index.html#para-quem">Para quem é</a>
+            <a href="index.html#pacote">O que vem no pacote</a>
+            <a href="index.html#faq">Perguntas frequentes</a>
+            <a href="https://pay.hotmart.com/I105294110E" target="_blank" rel="noopener">Comprar</a>
+            <a href="feedback.html">Deixar avaliação</a>
+          </nav>
+        </div>
+
+        <div>
+          <p class="footer-heading">Confiança</p>
+          <div class="footer-trust">
+            <div class="footer-trust-item">
+              <i class="ti ti-lock"></i>
+              <span>Pagamento via Hotmart</span>
+            </div>
+            <div class="footer-trust-item">
+              <i class="ti ti-shield-check"></i>
+              <span>Garantia incondicional de 7 dias</span>
+            </div>
+            <div class="footer-trust-item">
+              <i class="ti ti-rotate-clockwise"></i>
+              <span>Atualizações futuras inclusas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-bottom">cofrecerto.com.br</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════ -->
+  <script>
+    // Scroll progress bar
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      scrollBar.style.width = pct + '%';
+    }, { passive: true });
+
+    // Navbar scrolled state
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Form submission ──
+    const form = document.getElementById('feedback-form');
+    const btnSubmit = document.getElementById('btn-submit');
+    const formCard = document.getElementById('form-card');
+    const thankyou = document.getElementById('thankyou');
+
+    function showError(fieldId, errorId) {
+      document.getElementById(fieldId).classList.add('has-error');
+      document.getElementById(errorId).classList.add('visible');
+    }
+    function clearError(fieldId, errorId) {
+      document.getElementById(fieldId).classList.remove('has-error');
+      document.getElementById(errorId).classList.remove('visible');
+    }
+
+    function validate() {
+      let valid = true;
+
+      // Nome
+      const nome = document.getElementById('nome').value.trim();
+      if (!nome) {
+        showError('group-nome', 'error-nome');
+        valid = false;
+      } else {
+        clearError('group-nome', 'error-nome');
+      }
+
+      // Nota
+      const nota = form.querySelector('input[name="nota"]:checked');
+      if (!nota) {
+        document.getElementById('group-nota').classList.add('has-error');
+        document.getElementById('error-nota').classList.add('visible');
+        valid = false;
+      } else {
+        document.getElementById('group-nota').classList.remove('has-error');
+        document.getElementById('error-nota').classList.remove('visible');
+      }
+
+      // Depoimento
+      const depoimento = form.querySelector('input[name="depoimento"]:checked');
+      if (!depoimento) {
+        document.getElementById('group-depoimento').classList.add('has-error');
+        document.getElementById('error-depoimento').classList.add('visible');
+        valid = false;
+      } else {
+        document.getElementById('group-depoimento').classList.remove('has-error');
+        document.getElementById('error-depoimento').classList.remove('visible');
+      }
+
+      return valid;
+    }
+
+    // Clear errors on input
+    document.getElementById('nome').addEventListener('input', () => {
+      if (document.getElementById('nome').value.trim()) {
+        clearError('group-nome', 'error-nome');
+      }
+    });
+    form.querySelectorAll('input[name="nota"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('group-nota').classList.remove('has-error');
+        document.getElementById('error-nota').classList.remove('visible');
+      });
+    });
+    form.querySelectorAll('input[name="depoimento"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.getElementById('group-depoimento').classList.remove('has-error');
+        document.getElementById('error-depoimento').classList.remove('visible');
+      });
+    });
+
+    function showThankyou() {
+      formCard.style.display = 'none';
+      thankyou.style.display = 'block';
+      thankyou.classList.add('visible');
+      window.scrollTo({ top: thankyou.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validate()) return;
+
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = 'Enviando… <i class="ti ti-loader-2"></i>';
+
+      const payload = {
+        nome:       document.getElementById('nome').value.trim(),
+        versao:     (form.querySelector('input[name="versao"]:checked') || {}).value || '(não informado)',
+        nota:       (form.querySelector('input[name="nota"]:checked') || {}).value || '',
+        mudanca:    document.getElementById('mudanca').value.trim(),
+        melhoria:   document.getElementById('melhoria').value.trim(),
+        indicaria:  (form.querySelector('input[name="indicaria"]:checked') || {}).value || '(não informado)',
+        depoimento: (form.querySelector('input[name="depoimento"]:checked') || {}).value || '',
+      };
+
+      try {
+        const res = await fetch('https://formspree.io/f/mdajnnyw', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+        // Show thank you regardless of server status — network reached
+        showThankyou();
+      } catch (_) {
+        // Network error — still show thank you
+        showThankyou();
+      }
+    });
+  </script>
+</body>
+</html>

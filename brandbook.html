@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofre Certo — Brandbook v1.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde-noite:   #0D2818;
+      --verde-cofre:   #1B4332;
+      --verde-medio:   #2D6A4F;
+      --verde-acao:    #52B788;
+      --verde-suave:   #EDF4EE;
+      --verde-palido:  #F4F7F4;
+      --dourado:       #D4A017;
+      --dourado-claro: #F0C040;
+      --branco:        #FFFFFF;
+      --texto:         #1C2B1E;
+      --texto-sec:     #4A6350;
+      --texto-muted:   #7A9480;
+      --borda:         #D1E8D4;
+      --positivo:      #52B788;
+      --atencao:       #F59E0B;
+      --alerta:        #EF4444;
+      --sidebar-w:     240px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+      background: var(--verde-palido);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--verde-cofre);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      height: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .header-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header-brand img { height: 32px; }
+    .header-title {
+      color: #fff; font-size: .85rem; font-weight: 500; opacity: .85;
+    }
+    .header-version {
+      background: var(--dourado); color: var(--verde-noite);
+      font-size: .7rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: #fff; font-size: 1.5rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: fixed; top: 60px; left: 0; bottom: 0;
+      width: var(--sidebar-w);
+      background: var(--verde-noite);
+      overflow-y: auto;
+      padding: 24px 0;
+      z-index: 90;
+      transition: transform .3s;
+    }
+    .sidebar-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      color: var(--texto-muted); text-transform: uppercase;
+      padding: 0 20px 8px;
+    }
+    .sidebar a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 20px;
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+      font-size: .875rem;
+      border-left: 3px solid transparent;
+      transition: all .2s;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border-left-color: var(--dourado);
+    }
+    .sidebar a i { font-size: 1rem; width: 18px; }
+
+    /* ── MAIN ── */
+    .main {
+      margin-left: var(--sidebar-w);
+      margin-top: 60px;
+      padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 56px);
+      max-width: 960px;
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: clamp(64px, 9vw, 104px); }
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700;
+      color: var(--verde-cofre); margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--texto-sec); margin-bottom: 32px;
+    }
+    .divider {
+      border: none; border-top: 2px solid var(--borda); margin-bottom: 32px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff; border-radius: 12px;
+      border: 1px solid var(--borda);
+      padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .card-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--texto-muted); margin-bottom: 6px;
+    }
+    .card-value { font-size: 1.05rem; font-weight: 600; color: var(--texto); }
+    .card-body { font-size: .9rem; color: var(--texto-sec); margin-top: 6px; }
+
+    /* ── GRID ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    /* ═══════════════════════════
+       SEÇÃO ESSÊNCIA
+    ═══════════════════════════ */
+    .essence-hero {
+      background: linear-gradient(135deg, var(--verde-noite) 0%, var(--verde-cofre) 100%);
+      border-radius: 16px; padding: 40px; color: #fff; margin-bottom: 24px;
+    }
+    .essence-tagline {
+      font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800;
+      color: var(--dourado); margin-bottom: 12px;
+    }
+    .essence-desc { font-size: .95rem; opacity: .85; max-width: 560px; }
+
+    .essence-card {
+      background: #fff; border-radius: 12px; border: 1px solid var(--borda);
+      padding: 20px;
+    }
+    .essence-card .label {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--verde-acao); margin-bottom: 6px;
+    }
+    .essence-card p { font-size: .9rem; color: var(--texto); }
+
+    .archetype-box {
+      background: var(--verde-suave); border-radius: 12px;
+      border: 1px solid var(--borda); padding: 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .archetype-box i { font-size: 2rem; color: var(--verde-acao); flex-shrink: 0; }
+    .archetype-box ul { list-style: none; }
+    .archetype-box li { font-size: .875rem; color: var(--texto-sec); padding: 3px 0; }
+    .archetype-box li::before { content: "→ "; color: var(--verde-acao); font-weight: 700; }
+
+    /* ═══════════════════════════
+       SEÇÃO CORES
+    ═══════════════════════════ */
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .swatch {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--borda);
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .swatch-color { height: 80px; position: relative; }
+    .swatch-copy {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(0,0,0,.35); color: #fff;
+      border: none; border-radius: 6px;
+      font-size: .65rem; font-weight: 700; padding: 3px 8px;
+      cursor: pointer; opacity: 0; transition: opacity .2s;
+    }
+    .swatch:hover .swatch-copy { opacity: 1; }
+    .swatch-copy.copied { background: rgba(82,183,136,.8); }
+    .swatch-info { padding: 10px 12px; }
+    .swatch-name { font-size: .8rem; font-weight: 700; color: var(--texto); }
+    .swatch-hex { font-size: .75rem; color: var(--texto-muted); font-family: monospace; }
+    .swatch-use { font-size: .7rem; color: var(--texto-sec); margin-top: 3px; }
+
+    /* ═══════════════════════════
+       SEÇÃO TIPOGRAFIA
+    ═══════════════════════════ */
+    .type-demo { background: #fff; border-radius: 12px; border: 1px solid var(--borda); overflow: hidden; }
+    .type-row {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: 20px 24px; border-bottom: 1px solid var(--borda);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
+      width: 120px; flex-shrink: 0;
+    }
+    .type-meta-name { font-size: .7rem; font-weight: 700; color: var(--texto-muted); text-transform: uppercase; }
+    .type-meta-detail { font-size: .65rem; color: var(--borda); font-family: monospace; margin-top: 2px; }
+    .type-sample { flex: 1; color: var(--texto); }
+
+    .weight-grid {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+    }
+    .weight-card {
+      flex: 1; min-width: 140px;
+      background: #fff; border-radius: 10px; border: 1px solid var(--borda);
+      padding: 16px; text-align: center;
+    }
+    .weight-sample { font-size: 1.5rem; color: var(--verde-cofre); margin-bottom: 6px; }
+    .weight-label { font-size: .7rem; color: var(--texto-muted); }
+
+    /* ═══════════════════════════
+       SEÇÃO LOGO
+    ═══════════════════════════ */
+    .logo-showcase {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .logo-box {
+      border-radius: 12px; padding: 40px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      min-height: 180px;
+    }
+    .logo-box.light { background: #fff; border: 2px dashed var(--borda); }
+    .logo-box.dark  { background: var(--verde-cofre); }
+    .logo-box img   { max-height: 60px; max-width: 100%; }
+    .logo-box-label { font-size: .75rem; font-weight: 600; color: var(--texto-muted); }
+    .logo-box.dark .logo-box-label { color: rgba(255,255,255,.5); }
+
+    .logo-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .logo-rule {
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .logo-rule.ok   { background: #e8f5e9; border: 1px solid #a5d6a7; }
+    .logo-rule.nok  { background: #fce4d6; border: 1px solid #ef9a9a; }
+    .logo-rule i    { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .logo-rule.ok i { color: #2e7d32; }
+    .logo-rule.nok i{ color: #c62828; }
+    .logo-rule p    { font-size: .8rem; color: var(--texto); }
+
+    /* ═══════════════════════════
+       SEÇÃO ÍCONES
+    ═══════════════════════════ */
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+    }
+    .icon-card {
+      background: #fff; border-radius: 10px; border: 1px solid var(--borda);
+      padding: 20px 12px; display: flex; flex-direction: column;
+      align-items: center; gap: 10px; cursor: pointer;
+      transition: all .2s; position: relative;
+    }
+    .icon-card:hover { border-color: var(--verde-acao); background: var(--verde-suave); transform: translateY(-2px); }
+    .icon-card i { font-size: 1.8rem; color: var(--verde-cofre); }
+    .icon-card:hover i { color: var(--verde-acao); }
+    .icon-name { font-size: .65rem; font-weight: 600; color: var(--texto-muted); text-align: center; font-family: monospace; }
+    .icon-tooltip {
+      position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+      background: var(--verde-noite); color: #fff;
+      font-size: .65rem; padding: 4px 8px; border-radius: 4px;
+      white-space: nowrap; pointer-events: none;
+      opacity: 0; transition: opacity .2s;
+    }
+    .icon-card:hover .icon-tooltip { opacity: 1; }
+
+    /* ═══════════════════════════
+       SEÇÃO BOTÕES
+    ═══════════════════════════ */
+    .btn-showcase { display: flex; flex-direction: column; gap: 24px; }
+    .btn-row {
+      background: #fff; border-radius: 12px; border: 1px solid var(--borda);
+      padding: 24px; display: flex; gap: 32px; align-items: center;
+    }
+    .btn-row.dark-bg { background: var(--verde-cofre); }
+    .btn-preview { flex-shrink: 0; }
+    .btn-code { flex: 1; }
+    .btn-code pre {
+      background: var(--verde-noite); color: #a3e4b7;
+      border-radius: 8px; padding: 14px 16px;
+      font-size: .72rem; line-height: 1.6; overflow-x: auto;
+    }
+    .btn-label { font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--texto-muted); margin-bottom: 8px; }
+
+    /* botões visuais */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; border: none; cursor: pointer;
+      font-family: inherit; text-decoration: none; white-space: nowrap;
+      transition: all .2s;
+    }
+    .btn-gold {
+      background: var(--dourado); color: var(--verde-noite);
+      padding: 16px 40px; border-radius: 10px; font-weight: 700; font-size: 1rem;
+      box-shadow: 0 4px 16px rgba(212,160,23,.35);
+    }
+    .btn-gold:hover { background: var(--dourado-claro); transform: translateY(-1px); }
+    .btn-green {
+      background: var(--verde-acao); color: #fff;
+      padding: 13px 28px; border-radius: 10px; font-weight: 600; font-size: .95rem;
+    }
+    .btn-green:hover { background: #40916C; }
+    .btn-ghost-light {
+      background: transparent; border: 1.5px solid var(--verde-acao);
+      color: var(--verde-acao); padding: 12px 26px; border-radius: 10px;
+      font-weight: 600; font-size: .95rem;
+    }
+    .btn-ghost-light:hover { background: var(--verde-suave); }
+    .btn-ghost-dark {
+      background: transparent; border: 1.5px solid rgba(255,255,255,.35);
+      color: rgba(255,255,255,.85); padding: 12px 26px; border-radius: 10px;
+      font-weight: 600; font-size: .95rem;
+    }
+    .btn-ghost-dark:hover { background: rgba(255,255,255,.08); }
+
+    /* ═══════════════════════════
+       SEÇÃO VOZ & TOM
+    ═══════════════════════════ */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .voice-col-title {
+      font-size: .8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .voice-col-title.ok  { color: #2e7d32; }
+    .voice-col-title.nok { color: #c62828; }
+    .voice-phrase {
+      border-radius: 8px; padding: 12px 14px; margin-bottom: 8px;
+      font-size: .875rem;
+    }
+    .voice-phrase.ok  { background: var(--verde-suave); border: 1px solid #a5d6a7; color: var(--texto); }
+    .voice-phrase.nok { background: #fce4d6; border: 1px solid #ef9a9a; color: #7f1d1d; }
+
+    .voice-is {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;
+    }
+    .voice-is-card {
+      background: #fff; border-radius: 10px; border: 1px solid var(--borda);
+      padding: 16px; display: flex; gap: 10px; align-items: flex-start;
+    }
+    .voice-is-card.nok { opacity: .7; }
+    .voice-is-card i { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .voice-is-card.ok  i { color: var(--verde-acao); }
+    .voice-is-card.nok i { color: var(--alerta); }
+    .voice-is-card p { font-size: .85rem; color: var(--texto); }
+
+    /* ═══════════════════════════
+       SEÇÃO VALORES
+    ═══════════════════════════ */
+    .values-grid { display: flex; flex-direction: column; gap: 12px; }
+    .value-card {
+      background: #fff; border-radius: 12px; border: 1px solid var(--borda);
+      padding: 20px 24px; display: flex; align-items: flex-start; gap: 20px;
+    }
+    .value-num {
+      font-size: 2rem; font-weight: 800; color: var(--borda);
+      line-height: 1; flex-shrink: 0; width: 32px;
+    }
+    .value-icon { font-size: 1.5rem; color: var(--verde-acao); flex-shrink: 0; margin-top: 4px; }
+    .value-title { font-size: 1rem; font-weight: 700; color: var(--texto); margin-bottom: 4px; }
+    .value-desc { font-size: .875rem; color: var(--texto-sec); }
+
+    /* ═══════════════════════════
+       FOOTER
+    ═══════════════════════════ */
+    .site-footer {
+      margin-left: var(--sidebar-w);
+      background: var(--verde-noite); color: rgba(255,255,255,.55);
+      text-align: center; font-size: .8rem;
+      padding: 24px 32px;
+    }
+
+    /* ═══════════════════════════
+       TOAST
+    ═══════════════════════════ */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: var(--verde-cofre); color: #fff;
+      padding: 10px 18px; border-radius: 8px; font-size: .85rem; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transform: translateY(60px); opacity: 0;
+      transition: all .3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ═══════════════════════════
+       RESPONSIVE
+    ═══════════════════════════ */
+    @media (max-width: 768px) {
+      :root { --sidebar-w: 0px; }
+      .sidebar { transform: translateX(-240px); width: 240px; }
+      .sidebar.open { transform: translateX(0); }
+      .hamburger { display: block; }
+      .main { margin-left: 0; }
+      .site-footer { margin-left: 0; }
+      .logo-showcase, .logo-rules, .grid-2, .voice-grid, .voice-is { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .btn-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-brand">
+    <img src="imagens/logo_dark.png" alt="Cofre Certo" onerror="this.style.display='none'">
+    <span class="header-title">Brandbook — Guia de Identidade Visual</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span class="header-version">v1.0 — 2025</span>
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-label">Navegação</div>
+  <a href="#essencia"    ><i class="ti ti-sparkles"></i>Essência</a>
+  <a href="#cores"       ><i class="ti ti-palette"></i>Cores</a>
+  <a href="#tipografia"  ><i class="ti ti-typography"></i>Tipografia</a>
+  <a href="#logo"        ><i class="ti ti-lock"></i>Logo</a>
+  <a href="#iconografia" ><i class="ti ti-icons"></i>Iconografia</a>
+  <a href="#botoes"      ><i class="ti ti-cursor-text"></i>Botões</a>
+  <a href="#voz"         ><i class="ti ti-message-circle"></i>Voz & Tom</a>
+  <a href="#valores"     ><i class="ti ti-heart"></i>Valores</a>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ═══ ESSÊNCIA ═══ -->
+  <section class="section" id="essencia">
+    <h2 class="section-title">Essência da Marca</h2>
+    <p class="section-sub">O núcleo de tudo que o Cofre Certo representa.</p>
+    <hr class="divider">
+
+    <div class="essence-hero">
+      <div class="essence-tagline">"Guarde no lugar certo, viva sem sufoco."</div>
+      <p class="essence-desc">Uma planilha feita por quem já esteve no vermelho, para quem quer sair dele. Sem julgamento. Sem complicação. Só método.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:16px;">
+      <div class="essence-card">
+        <div class="label">Missão</div>
+        <p>Ajudar famílias brasileiras a saírem do vermelho e construírem uma vida financeira com clareza e esperança.</p>
+      </div>
+      <div class="essence-card">
+        <div class="label">Visão</div>
+        <p>Ser a ferramenta financeira favorita de quem está recomeçando do zero ou do negativo.</p>
+      </div>
+      <div class="essence-card">
+        <div class="label">Posicionamento</div>
+        <p>Não é um banco. Não é um app. É uma planilha feita por quem entende a dor do vermelho.</p>
+      </div>
+    </div>
+
+    <div class="archetype-box">
+      <i class="ti ti-user-star"></i>
+      <div>
+        <div style="font-weight:700;margin-bottom:8px;">Arquétipo: O Sábio + O Cara do Povo</div>
+        <ul>
+          <li>Fala como um amigo que entende de dinheiro — não como um banco que instrui</li>
+          <li>Tem credibilidade por experiência, não por teoria</li>
+          <li>É acessível sem ser amador</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CORES ═══ -->
+  <section class="section" id="cores">
+    <h2 class="section-title">Paleta de Cores</h2>
+    <p class="section-sub">Clique em "Copiar" para copiar o HEX para a área de transferência.</p>
+    <hr class="divider">
+    <div class="colors-grid" id="swatches"></div>
+  </section>
+
+  <!-- ═══ TIPOGRAFIA ═══ -->
+  <section class="section" id="tipografia">
+    <h2 class="section-title">Tipografia</h2>
+    <p class="section-sub">Família principal: <strong>Plus Jakarta Sans</strong> — Fallback: Inter, system-ui, sans-serif.</p>
+    <hr class="divider">
+
+    <div class="type-demo">
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Display</div>
+          <div class="type-meta-detail">clamp(2rem,5vw,3.25rem) / 800</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(2rem,5vw,3.25rem);font-weight:800;line-height:1.1;">Cofre Certo</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">H1</div>
+          <div class="type-meta-detail">clamp(1.6rem,3.5vw,2.4rem) / 700</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;">Planilha Financeira Familiar</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">H2</div>
+          <div class="type-meta-detail">clamp(1.1rem,2vw,1.35rem) / 600</div>
+        </div>
+        <div class="type-sample" style="font-size:clamp(1.1rem,2vw,1.35rem);font-weight:600;">Organize suas finanças sem complicação</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Body</div>
+          <div class="type-meta-detail">1rem / 400</div>
+        </div>
+        <div class="type-sample" style="font-size:1rem;font-weight:400;color:#4A6350;">A planilha que te ajuda a enxergar para onde vai cada centavo, montar um plano para sair das dívidas e construir sua reserva de emergência — mesmo começando do zero.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Small</div>
+          <div class="type-meta-detail">0.875rem / 400</div>
+        </div>
+        <div class="type-sample" style="font-size:0.875rem;font-weight:400;color:#7A9480;">Compatível com Excel e Google Sheets • Uso pessoal</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Micro</div>
+          <div class="type-meta-detail">0.75rem / 500</div>
+        </div>
+        <div class="type-sample" style="font-size:0.75rem;font-weight:500;">
+          <span style="background:#EDF4EE;color:#1B4332;padding:3px 10px;border-radius:20px;margin-right:6px;">NOVO</span>
+          <span style="background:#D4A017;color:#0D2818;padding:3px 10px;border-radius:20px;">POPULAR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="weight-grid" style="margin-top:24px;">
+      <div class="weight-card">
+        <div class="weight-sample" style="font-weight:400;">Aa</div>
+        <div class="weight-label">400 — Regular</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-sample" style="font-weight:500;">Aa</div>
+        <div class="weight-label">500 — Medium</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-sample" style="font-weight:600;">Aa</div>
+        <div class="weight-label">600 — SemiBold</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-sample" style="font-weight:700;">Aa</div>
+        <div class="weight-label">700 — Bold</div>
+      </div>
+      <div class="weight-card">
+        <div class="weight-sample" style="font-weight:800;">Aa</div>
+        <div class="weight-label">800 — ExtraBold</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LOGO ═══ -->
+  <section class="section" id="logo">
+    <h2 class="section-title">Logo</h2>
+    <p class="section-sub">Cadeado com arco dourado semi-aberto — símbolo de libertação financeira.</p>
+    <hr class="divider">
+
+    <div class="logo-showcase">
+      <div>
+        <div class="logo-box light">
+          <img src="imagens/logo.png" alt="Cofre Certo — logo claro">
+          <span class="logo-box-label">logo.png — fundos claros</span>
+        </div>
+      </div>
+      <div>
+        <div class="logo-box dark">
+          <img src="imagens/logo_dark.png" alt="Cofre Certo — logo escuro">
+          <span class="logo-box-label">logo_dark.png — fundos escuros</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="logo-rule ok"><i class="ti ti-check"></i><p>Usar sobre fundo claro → <code>logo.png</code></p></div>
+      <div class="logo-rule ok"><i class="ti ti-check"></i><p>Usar sobre fundo escuro → <code>logo_dark.png</code></p></div>
+      <div class="logo-rule ok"><i class="ti ti-check"></i><p>Altura mínima: 32px (digital) / 15mm (impresso)</p></div>
+      <div class="logo-rule ok"><i class="ti ti-check"></i><p>Manter espaçamento de proteção equivalente à letra "C"</p></div>
+      <div class="logo-rule nok"><i class="ti ti-x"></i><p>Nunca distorcer ou rotacionar o logo</p></div>
+      <div class="logo-rule nok"><i class="ti ti-x"></i><p>Nunca alterar as cores do logo</p></div>
+      <div class="logo-rule nok"><i class="ti ti-x"></i><p>Nunca usar o ícone sem o nome em comunicações oficiais</p></div>
+      <div class="logo-rule nok"><i class="ti ti-x"></i><p>Nunca usar sobre fundo que comprometa a leitura</p></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">Conceito do Ícone</div>
+      <div style="display:flex;gap:24px;align-items:center;margin-top:12px;flex-wrap:wrap;">
+        <div style="display:flex;gap:12px;">
+          <div style="width:40px;height:40px;background:#1B4332;border-radius:8px;" title="Verde Cofre #1B4332"></div>
+          <div style="width:40px;height:40px;background:#D4A017;border-radius:8px;" title="Dourado #D4A017"></div>
+        </div>
+        <p style="font-size:.875rem;color:var(--texto-sec);">Corpo do cadeado em <strong>#1B4332</strong> (Verde Cofre) — Arco dourado <strong>#D4A017</strong> semi-aberto, simbolizando libertação, não prisão.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ICONOGRAFIA ═══ -->
+  <section class="section" id="iconografia">
+    <h2 class="section-title">Iconografia</h2>
+    <p class="section-sub">Biblioteca Tabler Icons. Passe o mouse para ver o nome da classe — clique para copiar.</p>
+    <hr class="divider">
+    <div class="icons-grid" id="icons-grid"></div>
+  </section>
+
+  <!-- ═══ BOTÕES ═══ -->
+  <section class="section" id="botoes">
+    <h2 class="section-title">Componentes de Botão</h2>
+    <p class="section-sub">Quatro estilos para contextos diferentes. Todos com hover funcional.</p>
+    <hr class="divider">
+
+    <div class="btn-showcase">
+      <!-- Dourado -->
+      <div class="btn-row">
+        <div class="btn-preview">
+          <div class="btn-label">CTA Principal</div>
+          <button class="btn btn-gold">Quero a Planilha <i class="ti ti-download"></i></button>
+        </div>
+        <div class="btn-code">
+          <pre>background: #D4A017;
+color: #0D2818;
+padding: 16px 40px;
+border-radius: 10px;
+font-weight: 700;
+box-shadow: 0 4px 16px rgba(212,160,23,.35);
+/* hover: background #F0C040 */</pre>
+        </div>
+      </div>
+      <!-- Verde -->
+      <div class="btn-row">
+        <div class="btn-preview">
+          <div class="btn-label">CTA Secundário</div>
+          <button class="btn btn-green">Ver funcionalidades <i class="ti ti-arrow-right"></i></button>
+        </div>
+        <div class="btn-code">
+          <pre>background: #52B788;
+color: #ffffff;
+padding: 13px 28px;
+border-radius: 10px;
+font-weight: 600;
+/* hover: background #40916C */</pre>
+        </div>
+      </div>
+      <!-- Ghost Claro -->
+      <div class="btn-row">
+        <div class="btn-preview">
+          <div class="btn-label">Ghost — Fundo Claro</div>
+          <button class="btn btn-ghost-light">Saiba mais</button>
+        </div>
+        <div class="btn-code">
+          <pre>background: transparent;
+border: 1.5px solid #52B788;
+color: #52B788;
+padding: 12px 26px;
+border-radius: 10px;
+font-weight: 600;
+/* hover: background #EDF4EE */</pre>
+        </div>
+      </div>
+      <!-- Ghost Escuro -->
+      <div class="btn-row dark-bg">
+        <div class="btn-preview">
+          <div class="btn-label" style="color:rgba(255,255,255,.5);">Ghost — Fundo Escuro</div>
+          <button class="btn btn-ghost-dark">Ver detalhes</button>
+        </div>
+        <div class="btn-code">
+          <pre>background: transparent;
+border: 1.5px solid rgba(255,255,255,.35);
+color: rgba(255,255,255,.85);
+padding: 12px 26px;
+border-radius: 10px;
+font-weight: 600;
+/* hover: background rgba(255,255,255,.08) */</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VOZ & TOM ═══ -->
+  <section class="section" id="voz">
+    <h2 class="section-title">Voz & Tom</h2>
+    <p class="section-sub">Como o Cofre Certo fala — e o que nunca sai da boca da marca.</p>
+    <hr class="divider">
+
+    <div class="voice-is" style="margin-bottom:28px;">
+      <div class="voice-is-card ok"><i class="ti ti-check"></i><p><strong>Próxima e empática</strong> — fala como amigo, não como banco</p></div>
+      <div class="voice-is-card ok"><i class="ti ti-check"></i><p><strong>Direta e sem jargão</strong> — zero "termos técnicos" desnecessários</p></div>
+      <div class="voice-is-card ok"><i class="ti ti-check"></i><p><strong>Honesta mesmo quando dói</strong> — não esconde limitações</p></div>
+      <div class="voice-is-card ok"><i class="ti ti-check"></i><p><strong>Esperançosa sem prometer milagres</strong> — método, não magia</p></div>
+      <div class="voice-is-card nok"><i class="ti ti-x"></i><p><strong>Nunca fria ou corporativa</strong></p></div>
+      <div class="voice-is-card nok"><i class="ti ti-x"></i><p><strong>Nunca condescendente</strong></p></div>
+      <div class="voice-is-card nok"><i class="ti ti-x"></i><p><strong>Nunca prometedora de enriquecimento rápido</strong></p></div>
+      <div class="voice-is-card nok"><i class="ti ti-x"></i><p><strong>Nunca técnica sem necessidade</strong></p></div>
+    </div>
+
+    <div class="voice-grid">
+      <div>
+        <div class="voice-col-title ok"><i class="ti ti-check"></i> A marca diz</div>
+        <div class="voice-phrase ok">"A gente sabe como é estar no vermelho. Sem julgamento — só método."</div>
+        <div class="voice-phrase ok">"Não precisa ser rico para organizar. Precisa de método."</div>
+        <div class="voice-phrase ok">"A virada começa com uma decisão."</div>
+        <div class="voice-phrase ok">"Guarde no lugar certo, viva sem sufoco."</div>
+      </div>
+      <div>
+        <div class="voice-col-title nok"><i class="ti ti-x"></i> A marca nunca diz</div>
+        <div class="voice-phrase nok">"É simples!" — minimiza a dificuldade real</div>
+        <div class="voice-phrase nok">"Todo mundo consegue!" — soa vazio</div>
+        <div class="voice-phrase nok">"Nossa plataforma inovadora" — somos uma planilha</div>
+        <div class="voice-phrase nok">"Invista em seu futuro!" — genérico demais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALORES ═══ -->
+  <section class="section" id="valores">
+    <h2 class="section-title">Valores da Marca</h2>
+    <p class="section-sub">Os cinco princípios que guiam cada decisão do Cofre Certo.</p>
+    <hr class="divider">
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">1</div>
+        <i class="ti ti-heart value-icon"></i>
+        <div>
+          <div class="value-title">Empatia sem paternalismo</div>
+          <div class="value-desc">Entendemos a dor sem tratar o cliente como vítima. Ao lado, não acima.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">2</div>
+        <i class="ti ti-eye value-icon"></i>
+        <div>
+          <div class="value-title">Clareza acima de tudo</div>
+          <div class="value-desc">Sem jargão, sem enrolação, sem letras miúdas. Se precisar explicar, simplifica.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">3</div>
+        <i class="ti ti-tools value-icon"></i>
+        <div>
+          <div class="value-title">Método, não magia</div>
+          <div class="value-desc">Não prometemos riqueza rápida. Prometemos organização, controle e um plano real.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">4</div>
+        <i class="ti ti-shield-check value-icon"></i>
+        <div>
+          <div class="value-title">Honestidade mesmo quando dói</div>
+          <div class="value-desc">Se o produto tem limitação, falamos. Preferimos honestidade a promessas que não cumprimos.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">5</div>
+        <i class="ti ti-sun value-icon"></i>
+        <div>
+          <div class="value-title">Esperança com responsabilidade</div>
+          <div class="value-desc">Acreditamos na virada financeira. Mas nunca com promessas vazias — só com método e consistência.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Cofre Certo © 2025 — Este documento é confidencial e de uso interno. | cofrecerto.com.br
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── DADOS ── */
+  const COLORS = [
+    { name: 'Verde Noite',    hex: '#0D2818', use: 'Fundo hero, footer' },
+    { name: 'Verde Cofre',    hex: '#1B4332', use: 'Cor primária, navbar' },
+    { name: 'Verde Médio',    hex: '#2D6A4F', use: 'Gradientes, secundários' },
+    { name: 'Verde Ação',     hex: '#52B788', use: 'Botões, CTAs, ícones' },
+    { name: 'Verde Suave',    hex: '#EDF4EE', use: 'Fundos alternativos' },
+    { name: 'Verde Pálido',   hex: '#F4F7F4', use: 'Fundo geral da página' },
+    { name: 'Dourado',        hex: '#D4A017', use: '"Certo" no logo, CTAs premium' },
+    { name: 'Dourado Claro',  hex: '#F0C040', use: 'Hover dourado, highlights' },
+    { name: 'Branco',         hex: '#FFFFFF', use: 'Fundos de cards, texto escuro' },
+    { name: 'Texto Principal',hex: '#1C2B1E', use: 'Títulos, corpo — fundo claro' },
+    { name: 'Texto Sec.',     hex: '#4A6350', use: 'Subtítulos, descrições' },
+    { name: 'Texto Muted',    hex: '#7A9480', use: 'Placeholders, rodapés' },
+    { name: 'Borda',          hex: '#D1E8D4', use: 'Divisores, bordas de card' },
+    { name: 'Positivo',       hex: '#52B788', use: 'Saldo positivo, sucesso' },
+    { name: 'Atenção',        hex: '#F59E0B', use: 'Alertas moderados' },
+    { name: 'Alerta',         hex: '#EF4444', use: 'Saldo negativo, erros' },
+  ];
+
+  const ICONS = [
+    { icon: 'ti-shield-check',   label: 'Segurança / Garantia' },
+    { icon: 'ti-device-mobile',  label: 'Formulário Celular' },
+    { icon: 'ti-mail',           label: 'E-mail / Alertas' },
+    { icon: 'ti-chart-bar',      label: 'Dashboard / Gráficos' },
+    { icon: 'ti-target',         label: 'Metas' },
+    { icon: 'ti-trending-down',  label: 'Dívidas' },
+    { icon: 'ti-users',          label: 'Família CLT' },
+    { icon: 'ti-briefcase',      label: 'Autônomo / MEI' },
+    { icon: 'ti-settings',       label: 'Configuração' },
+    { icon: 'ti-download',       label: 'Download' },
+    { icon: 'ti-check',          label: 'Confirmação' },
+    { icon: 'ti-x',              label: 'Erro / Dor' },
+  ];
+
+  /* ── RENDER SWATCHES ── */
+  function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    return `${r}, ${g}, ${b}`;
+  }
+  function isLight(hex) {
+    const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+    return (r*299+g*587+b*114)/1000 > 128;
+  }
+
+  document.getElementById('swatches').innerHTML = COLORS.map(c => `
+    <div class="swatch">
+      <div class="swatch-color" style="background:${c.hex}">
+        <button class="swatch-copy" onclick="copyHex(this,'${c.hex}')">Copiar</button>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name">${c.name}</div>
+        <div class="swatch-hex">${c.hex} &nbsp;·&nbsp; rgb(${hexToRgb(c.hex)})</div>
+        <div class="swatch-use">${c.use}</div>
+      </div>
+    </div>
+  `).join('');
+
+  /* ── RENDER ICONS ── */
+  document.getElementById('icons-grid').innerHTML = ICONS.map(ic => `
+    <div class="icon-card" onclick="copyText('${ic.icon}')">
+      <span class="icon-tooltip">Clique para copiar</span>
+      <i class="ti ${ic.icon}"></i>
+      <div class="icon-name">${ic.icon}</div>
+    </div>
+  `).join('');
+
+  /* ── COPY HELPERS ── */
+  function copyHex(btn, hex) {
+    navigator.clipboard.writeText(hex).then(() => {
+      btn.textContent = '✓ Copiado';
+      btn.classList.add('copied');
+      showToast('HEX copiado: ' + hex);
+      setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 1500);
+    });
+  }
+  function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => showToast('Copiado: ' + text));
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  /* ── SIDEBAR ACTIVE ── */
+  const sections = document.querySelectorAll('section[id]');
+  const links    = document.querySelectorAll('.sidebar a');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+
+  /* ── HAMBURGER ── */
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+  document.querySelectorAll('.sidebar a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
